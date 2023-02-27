@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-color :black;
+        }
+        * {color: white;}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var manga_length = 0;
+        window.onload = () => {
+            fetch('/length')
+                .then((response) => response.json())
+                .then((data) => {
+                    manga_length = data;
+                    let container = document.getElementById("container");
+                    // console.log(data);
+                    let innerHTML = "";
+                    for (var i = 0; i < data; i++)
+                    {
+                        // console.log(data);
+                        innerHTML += "<img src='/img/"+ i + "'"+ "></img>"
+                    }
+                    // console.log("innerhtml : ");
+                    // console.log(container.innerHTML);
+                    container.innerHTML += innerHTML;
+                    // console.log("data"+data);
+                });
+            
+        }
+        
+    </script>
+</head>
+<body>
+    <h1>TE2S</h1>
+    <div id="container">
+        <img src="./tes" alt="">
+
+    </div>
+</body>
+</html>
